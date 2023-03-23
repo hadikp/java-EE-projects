@@ -1,0 +1,5 @@
+<c:forEach var="employee" items="${employees}">
+        <tr>
+            <c:out value = ${employee.name} />
+        </tr>
+        </c:forEach>
