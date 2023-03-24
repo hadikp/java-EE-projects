@@ -3,11 +3,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Employee</title>
 </head>
 <body>
+    <table>
+        <c:forEach var="i" begin="1" end="5">
+        Item <c:out value="${i}"/>
+        </c:forEach>
+        <tr>
+            <td>${message}</td>
+        </tr>
+    </table>
 
-        ${message}
+
 
 </body>
 </html>
