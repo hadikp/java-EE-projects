@@ -7,13 +7,13 @@
 </head>
 <body>
     <table>
-        <c:forEach var="i" begin="1" end="5">
-        Item <c:out value="${i}"/>
+        <c:forEach items="${employees}" var="employee">
+             <tr>
+                <td>${employee.name}</td>
+             </tr>
         </c:forEach>
-        <tr>
-            <td>${message}</td>
-        </tr>
-    </table>
+     </table>
+
 
 
 

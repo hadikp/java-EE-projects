@@ -1,5 +1,12 @@
-<c:forEach var="employee" items="${employees}">
+<c:forEach items="${employees}" var="employee">
         <tr>
-            <c:out value = ${employee.name} />
+            <td>${employee.name}</td>
         </tr>
         </c:forEach>
+
+ private List<Employee> employees = Collections.synchronizedList(
+             List.of(new Employee("John Doe"),
+                     new Employee("Jane Done")));
+     public List<Employee> findEmployees() {
+         return Collections.unmodifiableList(employees);
+     }

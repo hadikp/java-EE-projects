@@ -13,15 +13,17 @@ import java.util.List;
 @WebServlet("/employees")
 public class EmployeesServlet extends HttpServlet {
 
+    @Inject
+    private EmployeeBean employeeBean;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         /*try (PrintWriter writer = resp.getWriter()) {
             writer.println("Hello Java EE");
         }*/
-        req.setAttribute("message", "Hello World!");
-        req.getRequestDispatcher("/WEB-INF/jsp/employees.jsp").forward(req, resp);
-        /*List<Employee> employees = employeesBean.listEmployees();
-        req.setAttribute("employees", employees);
+        /*req.setAttribute("message", "Hello World!");
         req.getRequestDispatcher("/WEB-INF/jsp/employees.jsp").forward(req, resp);*/
+        List<Employee> employees = employeeBean.findEmployees();
+        req.setAttribute("employees", employees);
+        req.getRequestDispatcher("/WEB-INF/jsp/employees.jsp").forward(req, resp);
     }
 }
