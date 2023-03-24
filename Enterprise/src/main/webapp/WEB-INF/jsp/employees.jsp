@@ -6,6 +6,10 @@
     <title>Employee</title>
 </head>
 <body>
+    <form method="post">
+        <input name="name" />
+        <input type="submit" value="Create employee" />
+    </form>
     <table>
         <c:forEach items="${employees}" var="employee">
              <tr>

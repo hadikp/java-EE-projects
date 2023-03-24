@@ -26,4 +26,11 @@ public class EmployeesServlet extends HttpServlet {
         req.setAttribute("employees", employees);
         req.getRequestDispatcher("/WEB-INF/jsp/employees.jsp").forward(req, resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("name");
+        employeeBean.saveEmployee(name);
+        resp.sendRedirect("employees");
+    }
 }
