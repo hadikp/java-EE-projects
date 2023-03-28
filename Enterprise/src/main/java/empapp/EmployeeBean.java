@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 
-
+@Transactional
 public class EmployeeBean {
 
     public EmployeeBean() {
@@ -30,7 +30,7 @@ public class EmployeeBean {
         return em.createQuery("select e from Employee e", Employee.class).getResultList();
     }
 
-    @Transactional
+
     public void saveEmployee(String name) {
         em.persist(new Employee(name));
     }
