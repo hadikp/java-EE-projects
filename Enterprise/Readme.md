@@ -1,0 +1,1 @@
+Ez a project wildfly-18.0.0 alkalmazásszerverrel készült.

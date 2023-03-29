@@ -1,0 +1,1 @@
+Ez az alkalmazás a Glassfish alkalmazásszerveren fut
