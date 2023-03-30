@@ -6,10 +6,10 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Transactional
+
 public class TodoService {
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "pu")
     private EntityManager em;
 
     public List<Todo> listTodo(){
@@ -19,6 +19,8 @@ public class TodoService {
     public Todo findTodoById(Long id){
         return em.find(Todo.class, id);
     }
+
+    @Transactional
     public Todo saveTodo(Todo todo){
         em.persist(todo);
         return todo;
