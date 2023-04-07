@@ -31,7 +31,7 @@ public class EmployeeBean {
     }
 
 
-    public void saveEmployee(String name) {
-        em.persist(new Employee(name));
+    public void saveEmployee(String name, String country, int salary) {
+        em.persist(new Employee(name, country, salary));
     }
 }

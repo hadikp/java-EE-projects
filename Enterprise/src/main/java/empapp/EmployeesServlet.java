@@ -30,7 +30,9 @@ public class EmployeesServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
-        employeeBean.saveEmployee(name);
+        String country = req.getParameter("country");
+        int salary = Integer.parseInt(req.getParameter("salary"));
+        employeeBean.saveEmployee(name, country, salary);
         resp.sendRedirect("employees");
     }
 }

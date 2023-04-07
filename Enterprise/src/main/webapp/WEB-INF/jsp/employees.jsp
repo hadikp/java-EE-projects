@@ -7,19 +7,19 @@
 </head>
 <body>
     <form method="post">
-        <input name="name" />
+        Full name: <input name="name" />
+        Country: <input name="country" />
+        Salary: <input name="salary" />
         <input type="submit" value="Create employee" />
     </form>
     <table>
         <c:forEach items="${employees}" var="employee">
              <tr>
-                <td>${employee.name}</td>
+                <td>Fullname: ${employee.name}</td>
+                <td>Country: ${employee.country}</td>
+                <td>Salary: ${employee.salary}</td>
              </tr>
         </c:forEach>
      </table>
-
-
-
-
 </body>
 </html>
