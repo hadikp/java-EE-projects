@@ -1,5 +1,6 @@
 package todo;
 
+
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -13,6 +14,7 @@ public class TodoRest {
 
     @Inject
     private TodoService todoService;
+
 
     @Path("new")
     @POST

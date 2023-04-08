@@ -13,12 +13,12 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "emp_name")
-    @NotBlank
-    @Size(min = 3, max = 200)
+    //@Column(name = "emp_name")
+    //@NotBlank
+    //@Size(min = 3, max = 200)
     private String name;
 
-    @Min(100_000)
+    //@Min(100_000)
     private int salary;
 
     private String country;
