@@ -7,7 +7,3 @@ weboldal URL (pom.xml-finalName: empapp):
 ```shell
 localhost:8080/empapp/employees
 ```
-Deploy az alkalmazásszerverre:
-```shell
-localhost:8080/empapp/employees
-```
