@@ -1,0 +1,1 @@
+create table employees(id bigint auto_increment PRIMARY KEY, emp_name varchar(50), country varchar(50), salary bigint);
