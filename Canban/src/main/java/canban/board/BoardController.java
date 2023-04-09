@@ -16,7 +16,6 @@ public class BoardController {
     @Inject
     private BoardService boardService;
 
-    @Path("list")
     @GET
     public List<Board> listBoard(){
         return boardService.listBoard();

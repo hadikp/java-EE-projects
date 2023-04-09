@@ -1,8 +1,16 @@
 package canban.board;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Table(name = "boards")
 public class Board {
 
     @Id
@@ -14,27 +22,9 @@ public class Board {
     @Column(name = "position_number")
     private int positionNumber;
 
-    public Board() {
-    }
-
     public Board(String name, int positionNumber) {
         this.name = name;
         this.positionNumber = positionNumber;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getPositionNumber() {
-        return positionNumber;
-    }
-
-    public void setPositionNumber(int positionNumber) {
-        this.positionNumber = positionNumber;
-    }
 }
