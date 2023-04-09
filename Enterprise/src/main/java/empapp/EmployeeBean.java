@@ -4,13 +4,14 @@ package empapp;
 import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.inject.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 import javax.transaction.Transactional;
 import java.util.List;
 
-
+@Singleton
 @Transactional
 public class EmployeeBean {
 

@@ -10,7 +10,8 @@ import javax.ejb.TransactionManagementType;
 import javax.sql.DataSource;
 
 
-@TransactionManagement(value = TransactionManagementType.BEAN)
+@Singleton
+//@TransactionManagement(value = TransactionManagementType.BEAN)
 public class DbMigrator {
 
     @Resource(lookup = "java:/jdbc/EmployeeDS")
