@@ -11,9 +11,9 @@ import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.sql.DataSource;
 
-@Singleton
+/*@Singleton
 @Startup
-@TransactionManagement(value = TransactionManagementType.BEAN)
+@TransactionManagement(value = TransactionManagementType.BEAN)*/
 public class DbMigrator {
 
     @Resource(mappedName = "canbanDB")
@@ -21,7 +21,7 @@ public class DbMigrator {
 
     @PostConstruct
     public void init(){
-        Flyway flyway = Flyway.configure().dataSource(dataSource).load();
-        flyway.migrate();
+        /*Flyway flyway = Flyway.configure().dataSource(dataSource).load();
+        flyway.migrate();*/
     }
 }
