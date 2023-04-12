@@ -1,5 +1,7 @@
 package empapp;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
@@ -11,9 +13,10 @@ import javax.sql.DataSource;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Singleton
 @Transactional
 public class EmployeeBean {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public EmployeeBean() {
     }
@@ -28,6 +31,8 @@ public class EmployeeBean {
     private DataSource dataSource;
 
     public List<Employee> findEmployees() {
+        logger.info("List employees");
+        logger.debug("List employees without parameters");
         return em.createQuery("select e from Employee e", Employee.class).getResultList();
     }
 

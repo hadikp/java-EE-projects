@@ -10,7 +10,7 @@ import javax.ejb.TransactionManagementType;
 import javax.sql.DataSource;
 
 
-@Singleton
+
 //@TransactionManagement(value = TransactionManagementType.BEAN)
 public class DbMigrator {
 
