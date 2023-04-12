@@ -7,3 +7,7 @@ weboldal URL (pom.xml-finalName: empapp):
 ```shell
 localhost:8080/empapp/employees
 ```
+wyldfly kezelőfelulete(username: root):
+```shell
+localhost:9990
+```
