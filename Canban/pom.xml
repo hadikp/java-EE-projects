@@ -37,6 +37,11 @@
             <artifactId>flyway-mysql</artifactId>
             <version>8.5.13</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.36</version>
+        </dependency>
     </dependencies>
 
     <build>

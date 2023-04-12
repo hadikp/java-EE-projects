@@ -24,6 +24,7 @@ public class BoardController {
     }
 
     @Path("create")
+    @POST
     public Board createBoard(CreateBoardCommand command){
         return boardService.createBoard(command);
     }

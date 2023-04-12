@@ -1,5 +1,8 @@
 package canban.board;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.annotation.Resource;
 import javax.inject.Singleton;
 import javax.persistence.EntityManager;
@@ -9,8 +12,9 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Singleton
-@Transactional
 public class BoardService {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @PersistenceContext
     private EntityManager em;
@@ -19,6 +23,8 @@ public class BoardService {
     private DataSource dataSource;
 
     public List<Board> listBoard(){
+        logger.info("List Board");
+        logger.debug("List Board without parameters");
         return em.createQuery("select b from Board b", Board.class).getResultList();
     }
 
