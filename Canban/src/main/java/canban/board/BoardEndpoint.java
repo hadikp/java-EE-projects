@@ -6,7 +6,6 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 import java.util.List;
 
-@Stateless
 @WebService
 public class BoardEndpoint {
 
