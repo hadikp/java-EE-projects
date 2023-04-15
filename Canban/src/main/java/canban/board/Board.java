@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAttribute;
 
 @Data
 @NoArgsConstructor
@@ -27,4 +28,8 @@ public class Board {
         this.positionNumber = positionNumber;
     }
 
+    @XmlAttribute
+    public Long getId() {
+        return id;
+    }
 }
