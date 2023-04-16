@@ -13,7 +13,6 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Singleton
-@Transactional
 public class BoardService {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -39,9 +38,25 @@ public class BoardService {
     }
 
 
+    @Transactional
     public Board createBoard(CreateBoardCommand command) {
         Board board = new Board(command.getName(), command.getPositionNumber());
         em.persist(board);
         return board;
+    }
+
+    @Transactional
+    public void deleteBoard(Long id) {
+        Board board = this.findBoardById(id);
+        em.remove(board);
+    }
+
+    @Transactional
+    public Board updateBoard(long id, UpdateBoardCommand command) {
+        Board findBoard = this.findBoardById(id);
+        findBoard.setName(command.getName());
+        findBoard.setPositionNumber(command.getPositionNumber());
+        em.merge(findBoard);
+        return findBoard;
     }
 }
