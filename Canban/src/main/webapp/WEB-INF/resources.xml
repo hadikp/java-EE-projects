@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <Resource id="canbanDB" type="DataSource">
-        JdbcDriver org.mariadb.jdbc.Driver
-        JdbcUrl jdbc:mariadb://localhost:3306/canban
-        JtaManaged true
-        UserName canban
-        Password canban
+        JdbcDriver = org.mariadb.jdbc.Driver
+        JdbcUrl = jdbc:mariadb://localhost:3306/canban
+        JtaManaged = true
+        UserName = canban
+        Password = canban
     </Resource>
 </resources>
