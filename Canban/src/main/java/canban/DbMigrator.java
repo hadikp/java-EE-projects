@@ -1,8 +1,6 @@
 package canban;
 
 
-import org.flywaydb.core.Flyway;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.Singleton;
