@@ -1,5 +1,6 @@
 package canban.board;
 
+import canban.squad.Squad;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,9 @@ public class Board {
 
     @Column(name = "position_number")
     private int positionNumber;
+
+    @OneToOne(mappedBy = "board")
+    private Squad squad;
 
     public Board(String name, int positionNumber) {
         this.name = name;
