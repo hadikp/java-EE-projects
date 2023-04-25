@@ -14,4 +14,5 @@ public class CreateSquadCommand {
     private String name;
     private String description;
     private LocalDate startDate;
+    private Long boardId;
 }
