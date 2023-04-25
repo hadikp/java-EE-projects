@@ -24,6 +24,8 @@ public class SquadService {
     @Inject
     private BoardService boardService;
 
+
+
     @Transactional
     public Squad createSquad(CreateSquadCommand command) {
         Squad squad = new Squad(command.getName(), command.getDescription(), command.getStartDate());
