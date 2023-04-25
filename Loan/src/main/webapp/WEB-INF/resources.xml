@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <Resource id="loanDB" type="DataSource">
+        JdbcDriver = org.mariadb.jdbc.Driver
+        JdbcUrl = jdbc:mariadb://localhost:3306/loan
+        JtaManaged = true
+        UserName = loan
+        Password = loan
+    </Resource>
+</resources>
