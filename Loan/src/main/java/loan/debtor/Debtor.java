@@ -21,4 +21,8 @@ public class Debtor {
 
     @Embedded
     private Address address;
+
+    public Debtor(String name) {
+        this.name = name;
+    }
 }
