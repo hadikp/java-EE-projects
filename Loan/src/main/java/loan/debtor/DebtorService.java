@@ -1,7 +1,7 @@
 package loan.debtor;
 
 import javax.annotation.Resource;
-import javax.inject.Singleton;
+import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
@@ -30,11 +30,18 @@ public class DebtorService {
         return debtor;
     }
 
+    @Transactional
     public Debtor createDebtor(CreateDebtorCommand command) {
         Debtor debtor = new Debtor(command.getName());
         Address address = new Address(command.getCity(), command.getStreet(), command.getHouseNumber(), command.getFloor(), command.getDoor());
         //debtor.setAddress(address);
         em.persist(debtor);
         return debtor;
+    }
+
+    @Transactional
+    public void deleteDebtor(Long id) {
+        Debtor debtor = em.find(Debtor.class, id);
+        em.remove(debtor);
     }
 }
