@@ -14,7 +14,7 @@
         <input type="submit" value="Create datas" />
     </form>
     <table>
-        <c:forEach items="${employees}" var="employee">
+        <c:forEach items="${deposits}" var="deposit">
              <tr>
                 <td>Fund: ${deposit.fund}</td>
                 <td>Interest: ${deposit.interest}</td>
