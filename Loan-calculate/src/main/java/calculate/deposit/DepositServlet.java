@@ -27,7 +27,7 @@ public class DepositServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Deposit> deposits = depositService.findDeposit();
+        List<Deposit> deposits = depositService.listDeposit();
         req.setAttribute("deposits", deposits);
         req.getRequestDispatcher("/WEB-INF/jsp/deposit.jsp").forward(req, resp);
     }

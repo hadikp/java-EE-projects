@@ -18,7 +18,7 @@ public class DepositService {
         deposits.add(new Deposit(fund, interest, depositYear, payment));
     }
 
-    public List<Deposit> findDeposit() {
+    public List<Deposit> listDeposit() {
         return deposits;
     }
 

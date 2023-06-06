@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Deposit {
+public class Deposit { //letét
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
