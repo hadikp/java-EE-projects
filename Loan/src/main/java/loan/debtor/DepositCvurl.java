@@ -1,13 +1,18 @@
-package loan;
+package loan.debtor;
 
 import coresearch.cvurl.io.model.Response;
 import coresearch.cvurl.io.request.CVurl;
 
-import java.nio.charset.StandardCharsets;
+import javax.inject.Inject;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
+public class DepositCvurl {
+
+    public DepositCvurl() {
+    }
+
+    public void cVurl(){
         CVurl cVurl = new CVurl();
 
         //GET
