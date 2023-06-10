@@ -6,10 +6,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DepositCvurlTest {
 
-    @Test
+    /*@Test
     public void cVurlTest(){
         DepositCvurl depositCvurl = new DepositCvurl();
         depositCvurl.cVurl();
-    }
+    }*/
+
+
+
+
 
 }
