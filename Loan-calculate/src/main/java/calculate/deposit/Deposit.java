@@ -28,7 +28,7 @@ public class Deposit { //bankbetét
         this.payment = payment;
     }
 
-    public double calculateDepositInterestByYear(int fund, double interest, int year){//kamatos kamat évente
-        return fund * (Math.pow((1 + interest), year));
+    public double calculateDepositInterestByYear(){//kamatos kamat évente
+        return this.fund * (Math.pow((1 + this.interest), this.depositYear));
     }
 }

@@ -1,6 +1,7 @@
 package calculate.deposit;
 
 import javax.ejb.Singleton;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
@@ -12,6 +13,9 @@ public class DepositService {
     @PersistenceContext
     private EntityManager em;
 
+    @Inject
+    Deposit deposit;
+
     private List<Deposit> depositsData = new ArrayList<>(List.of(new Deposit(10_000_000, 0.05, 10, 150_000)));
 
     public void addData(int fund, double interest, int depositYear, int payment) {
@@ -20,6 +24,10 @@ public class DepositService {
 
     public List<Deposit> listDepositData() {
         return depositsData;
+    }
+
+    public double depositInterestByYear(){
+        return deposit.calculateDepositInterestByYear();
     }
 
     /*@Transactional

@@ -7,10 +7,10 @@
 </head>
 <body>
     <form method="post">
-        Fund: <input name="fund" />
-        Interest: <input name="interest" />
-        Year: <input name="depositYear" />
-        Payment: <input name="payment" />
+        Fund: <input name="fund" /> &nbsp;
+        Interest: <input name="interest" /> &nbsp;
+        Year: <input name="depositYear" /> &nbsp;
+        Payment: <input name="payment" /> &nbsp;
         <input type="submit" value="Create datas" />
     </form>
     <table>
@@ -19,9 +19,11 @@
                 <td>Fund: ${deposit.fund}</td>
                 <td>Interest: ${deposit.interest}</td>
                 <td>Years of deposit: ${deposit.depositYear}</td>
-                <td>Compound interest per year: ${deposit.depositYear}</td>
              </tr>
         </c:forEach>
+            <tr>
+                <td>Compound interest by year: ${depositByYear}</td>
+            </tr>
      </table>
 </body>
 </html>
