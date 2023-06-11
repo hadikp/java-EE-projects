@@ -20,7 +20,7 @@ public class DepositRestAssured {
     public void dataFromApi(String endpoint){
         Response response = doGetRequest(endpoint);
         String fund = response.jsonPath().getString("fund[1]");
-        System.out.println(fund);
+        System.out.println(Integer.valueOf(fund));
         /*Map<String, String> fundMap = response.jsonPath().getMap("fund");
         System.out.println(fundMap.get("fund"));*/
     }
