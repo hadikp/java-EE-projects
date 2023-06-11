@@ -16,6 +16,6 @@ public class DepositController {
 
     @GET
     public List<Deposit> listDeposit(){
-        return depositService.listDeposit();
+        return depositService.listDepositData();
     }
 }

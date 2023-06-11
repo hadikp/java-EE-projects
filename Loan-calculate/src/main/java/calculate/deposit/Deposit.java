@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Deposit { //letét
+public class Deposit { //bankbetét
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,5 +26,9 @@ public class Deposit { //letét
         this.interest = interest;
         this.depositYear = depositYear;
         this.payment = payment;
+    }
+
+    public double calculateDepositInterestByYear(int fund, double interest, int year){//kamatos kamat évente
+        return fund * (Math.pow((1 + interest), year));
     }
 }

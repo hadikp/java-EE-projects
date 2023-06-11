@@ -18,7 +18,8 @@
              <tr>
                 <td>Fund: ${deposit.fund}</td>
                 <td>Interest: ${deposit.interest}</td>
-                <td>Year: ${deposit.depositYear}</td>
+                <td>Years of deposit: ${deposit.depositYear}</td>
+                <td>Compound interest per year: ${deposit.depositYear}</td>
              </tr>
         </c:forEach>
      </table>
