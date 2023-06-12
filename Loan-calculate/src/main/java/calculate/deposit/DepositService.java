@@ -27,7 +27,8 @@ public class DepositService {
     }
 
     public double depositInterestByYear(){
-        return deposit.calculateDepositInterestByYear();
+       Deposit depositFromList = depositsData.get(listDepositData().size()-1);
+        return deposit.calculateDepositInterestByYear(depositFromList.getFund(), depositFromList.getInterest(), depositFromList.getDepositYear());
     }
 
     /*@Transactional

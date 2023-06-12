@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.List;
 
 @WebServlet("/deposit")
@@ -28,7 +29,7 @@ public class DepositServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Deposit> deposits = depositService.listDepositData();
-        double depositByYear = depositService.depositInterestByYear();
+        String depositByYear = new DecimalFormat("#,###.#").format(depositService.depositInterestByYear());
         req.setAttribute("deposits", deposits);
         req.setAttribute("depositByYear", depositByYear);
         req.getRequestDispatcher("/WEB-INF/jsp/deposit.jsp").forward(req, resp);
