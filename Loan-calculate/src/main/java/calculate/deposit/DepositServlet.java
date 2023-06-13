@@ -29,9 +29,10 @@ public class DepositServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Deposit> deposits = depositService.listDepositData();
-        String depositByYear = new DecimalFormat("#,###.#").format(depositService.depositInterestByYear());
+        List<String> depositByYears = depositService.listDepositResult();
+        depositService.depositInterestByYear(); //fusson le a függvény
         req.setAttribute("deposits", deposits);
-        req.setAttribute("depositByYear", depositByYear);
+        req.setAttribute("depositByYears", depositByYears);
         req.getRequestDispatcher("/WEB-INF/jsp/deposit.jsp").forward(req, resp);
     }
 }

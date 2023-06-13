@@ -19,10 +19,10 @@ public class DepositRestAssured {
 
     public void dataFromApi(String endpoint){
         Response response = doGetRequest(endpoint);
-        String fund = response.jsonPath().getString("fund[1]");
-        String interest = response.jsonPath().getString("interest[1]");
-        String year = response.jsonPath().getString("depositYear[1]");
-        String payment = response.jsonPath().getString("payment[1]");
+        String fund = response.jsonPath().getString("fund[0]");
+        String interest = response.jsonPath().getString("interest[0]");
+        String year = response.jsonPath().getString("depositYear[0]");
+        String payment = response.jsonPath().getString("payment[0]");
         System.out.println("Tőke:" + Integer.valueOf(fund));
         System.out.println("Kamat:" + Double.valueOf(interest));
         System.out.println("Pénz lekötésének évei:" + Integer.valueOf(year));

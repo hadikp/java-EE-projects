@@ -15,15 +15,19 @@
     </form>
     <table>
         <c:forEach items="${deposits}" var="deposit">
-             <tr>
-                <td>Fund: ${deposit.fund}</td>
-                <td>Interest: ${deposit.interest}</td>
-                <td>Years of deposit: ${deposit.depositYear}</td>
-             </tr>
+                     <tr>
+                        <td>Fund: ${deposit.fund}</td>
+                        <td>Interest: ${deposit.interest}</td>
+                        <td>Years of deposit: ${deposit.depositYear}</td>
+                     </tr>
         </c:forEach>
-            <tr>
-                <td>Compound interest by year: ${depositByYear}</td>
-            </tr>
+        <c:forEach items="${depositByYears}" var="depositByYear">
+              <tr>
+                 <td>Compound interest by year: ${depositByYear}</td>
+              </tr>
+        </c:forEach>
+
+
      </table>
 </body>
 </html>
