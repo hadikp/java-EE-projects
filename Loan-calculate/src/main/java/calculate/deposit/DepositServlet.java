@@ -31,11 +31,14 @@ public class DepositServlet extends HttpServlet {
         List<Deposit> deposits = depositService.listDepositData();
         List<String> depositByYears = depositService.listDepositInterestByYear();
         List<String> depositByMonths = depositService.listDepositInterestByMonth();
+        List<String> annuities = depositService.listAnnuity();
         depositService.depositInterestByYear(); //fusson le a függvény
         depositService.depositInterestByMonth(); //fusson le a függvény
+        depositService.getAnnuity(); //fusson le a függvény
         req.setAttribute("deposits", deposits);
         req.setAttribute("depositByYears", depositByYears);
         req.setAttribute("depositByMonths", depositByMonths);
+        req.setAttribute("annuities", annuities);
         req.getRequestDispatcher("/WEB-INF/jsp/deposit.jsp").forward(req, resp);
     }
 }

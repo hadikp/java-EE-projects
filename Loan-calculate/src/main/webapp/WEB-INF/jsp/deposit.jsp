@@ -30,7 +30,12 @@
                       <tr>
                          <td>Compound interest by month: ${depositByMonth}</td>
                       </tr>
-                </c:forEach>
+        </c:forEach>
+        <c:forEach items="${annuities}" var="annuity">
+                       <tr>
+                          <td>Annuity: ${annuity}</td>
+                       </tr>
+        </c:forEach>
      </table>
 </body>
 </html>

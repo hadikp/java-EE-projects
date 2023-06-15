@@ -20,6 +20,7 @@ public class DepositService {
     private List<Deposit> depositsData = new ArrayList<>(List.of(new Deposit(10_000_000, 0.05, 10, 150_000)));
     private List<String> depositInterestByYearResults = new ArrayList<>();
     private List<String> depositInterestByMonthResults = new ArrayList<>();
+    private List<String> annuityResults = new ArrayList<>();
 
     public void addData(int fund, double interest, int depositYear, int payment) {
         depositsData.add(new Deposit(fund, interest, depositYear, payment));
@@ -34,6 +35,9 @@ public class DepositService {
     }
     public List<String> listDepositInterestByMonth(){
         return depositInterestByMonthResults;
+    }
+    public List<String> listAnnuity(){
+        return annuityResults;
     }
 
     public void depositInterestByYear(){
@@ -50,6 +54,14 @@ public class DepositService {
         String depositResultFormat = new DecimalFormat("#,###.#").format(depositResult);
         depositInterestByMonthResults.add(depositResultFormat);
         depositFromList.setDepositInterestByMonth(depositResultFormat);
+    }
+
+    public void getAnnuity(){ //gyűjtőjáradék
+        Deposit depositFromList = depositsData.get(listDepositData().size()-1);
+        double annuityResult = deposit.calculateAnnuity(depositFromList.getPayment(), depositFromList.getInterest(), depositFromList.getDepositYear());
+        String annuityResultFormat = new DecimalFormat("#,###.#").format(annuityResult);
+        annuityResults.add(annuityResultFormat);
+        depositFromList.setAnnuity(annuityResultFormat);
     }
 
 
