@@ -18,7 +18,8 @@ public class DepositService {
     Deposit deposit;
 
     private List<Deposit> depositsData = new ArrayList<>(List.of(new Deposit(10_000_000, 0.05, 10, 150_000)));
-    protected List<String> depositResults = new ArrayList<>();
+    private List<String> depositInterestByYearResults = new ArrayList<>();
+    private List<String> depositInterestByMonthResults = new ArrayList<>();
 
     public void addData(int fund, double interest, int depositYear, int payment) {
         depositsData.add(new Deposit(fund, interest, depositYear, payment));
@@ -28,16 +29,29 @@ public class DepositService {
         return depositsData;
     }
 
-    public List<String> listDepositResult(){
-        return depositResults;
+    public List<String> listDepositInterestByYear(){
+        return depositInterestByYearResults;
+    }
+    public List<String> listDepositInterestByMonth(){
+        return depositInterestByMonthResults;
     }
 
     public void depositInterestByYear(){
        Deposit depositFromList = depositsData.get(listDepositData().size()-1);
        double depositResult = deposit.calculateDepositInterestByYear(depositFromList.getFund(), depositFromList.getInterest(), depositFromList.getDepositYear());
        String depositResultFormat = new DecimalFormat("#,###.#").format(depositResult);
-       depositResults.add(depositResultFormat);
+       depositInterestByYearResults.add(depositResultFormat);
+       depositFromList.setDepositInterestByYear(depositResultFormat);
     }
+
+    public void depositInterestByMonth(){
+        Deposit depositFromList = depositsData.get(listDepositData().size()-1);
+        double depositResult = deposit.calculateDepositInterestByMonth(depositFromList.getFund(), depositFromList.getInterest(), depositFromList.getDepositYear());
+        String depositResultFormat = new DecimalFormat("#,###.#").format(depositResult);
+        depositInterestByMonthResults.add(depositResultFormat);
+        depositFromList.setDepositInterestByMonth(depositResultFormat);
+    }
+
 
     /*@Transactional
     public Deposit createData(int depositYear, int fund, double interest, int payment){

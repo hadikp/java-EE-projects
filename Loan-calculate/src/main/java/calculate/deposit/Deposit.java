@@ -21,6 +21,9 @@ public class Deposit { //bankbetét
     private int depositYear;
     private int payment;
 
+    private String depositInterestByYear;
+    private String depositInterestByMonth;
+
     public Deposit(int fund, double interest, int depositYear, int payment) {
         this.fund = fund;
         this.interest = interest;
@@ -30,5 +33,9 @@ public class Deposit { //bankbetét
 
     public double calculateDepositInterestByYear(int fund, double interest, int depositYear){//kamatos kamat évente
         return fund * (Math.pow((1 + interest), depositYear));
+    }
+
+    public double calculateDepositInterestByMonth(int fund, double interest, int depositYear){
+        return fund * (Math.pow((1 + interest / 12), depositYear * 12));
     }
 }

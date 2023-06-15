@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateBoardCommand {
+public class CreateDepositCommand {
 
     private int fund;
     private double interest;

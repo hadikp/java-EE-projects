@@ -26,8 +26,11 @@
                  <td>Compound interest by year: ${depositByYear}</td>
               </tr>
         </c:forEach>
-
-
+        <c:forEach items="${depositByMonths}" var="depositByMonth">
+                      <tr>
+                         <td>Compound interest by month: ${depositByMonth}</td>
+                      </tr>
+                </c:forEach>
      </table>
 </body>
 </html>
