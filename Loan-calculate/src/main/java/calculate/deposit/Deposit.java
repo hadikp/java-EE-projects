@@ -24,6 +24,7 @@ public class Deposit { //bankbetét
     private String depositInterestByYear;
     private String depositInterestByMonth;
     private String annuity;
+    private Long annuitiesYear;
 
     public Deposit(int fund, double interest, int depositYear, int payment) {
         this.fund = fund;
@@ -43,5 +44,11 @@ public class Deposit { //bankbetét
     public double calculateAnnuity(int payment, double interest, int depositYear){
         double wholeInterest = 1 + interest;
         return payment * wholeInterest * (Math.pow(wholeInterest, depositYear) -1) / (wholeInterest - 1);
+    }
+
+    public Long getYearAnnuity(int payment, double interest, int fund){
+        double wholeInterest = 1 + interest;
+        double lnNum = 1 + fund * (wholeInterest - 1) / (payment * wholeInterest);
+        return Math.round(Math.log(lnNum) / Math.log(wholeInterest));
     }
 }

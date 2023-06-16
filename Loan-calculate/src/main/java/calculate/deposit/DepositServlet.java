@@ -30,15 +30,16 @@ public class DepositServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Deposit> deposits = depositService.listDepositData();
         List<String> depositByYears = depositService.listDepositInterestByYear();
-        List<String> depositByMonths = depositService.listDepositInterestByMonth();
         List<String> annuities = depositService.listAnnuity();
+        List<Long> annuitiesYear = depositService.listYearAnnuity();
         depositService.depositInterestByYear(); //fusson le a függvény
         depositService.depositInterestByMonth(); //fusson le a függvény
         depositService.getAnnuity(); //fusson le a függvény
+        depositService.getYearAnnuity(); //fusson le a függvény
         req.setAttribute("deposits", deposits);
         req.setAttribute("depositByYears", depositByYears);
-        req.setAttribute("depositByMonths", depositByMonths);
         req.setAttribute("annuities", annuities);
+        req.setAttribute("annuitiesYear", annuitiesYear);
         req.getRequestDispatcher("/WEB-INF/jsp/deposit.jsp").forward(req, resp);
     }
 }

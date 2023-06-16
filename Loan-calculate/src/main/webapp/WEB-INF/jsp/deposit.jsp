@@ -19,6 +19,7 @@
                         <td>Fund: ${deposit.fund}</td>
                         <td>Interest: ${deposit.interest}</td>
                         <td>Years of deposit: ${deposit.depositYear}</td>
+                        <td>Payment: ${deposit.payment}</td>
                      </tr>
         </c:forEach>
         <c:forEach items="${depositByYears}" var="depositByYear">
@@ -26,14 +27,14 @@
                  <td>Compound interest by year: ${depositByYear}</td>
               </tr>
         </c:forEach>
-        <c:forEach items="${depositByMonths}" var="depositByMonth">
-                      <tr>
-                         <td>Compound interest by month: ${depositByMonth}</td>
-                      </tr>
-        </c:forEach>
         <c:forEach items="${annuities}" var="annuity">
                        <tr>
                           <td>Annuity: ${annuity}</td>
+                       </tr>
+        </c:forEach>
+        <c:forEach items="${annuitiesYear}" var="annuityYear">
+                       <tr>
+                          <td>Annuity year: ${annuityYear}</td>
                        </tr>
         </c:forEach>
      </table>

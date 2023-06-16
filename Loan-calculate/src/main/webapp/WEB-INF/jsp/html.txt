@@ -1,6 +1,8 @@
-<tr>
-                <td>Compound interest by year: ${depositByYear}</td>
-            </tr>
+    <tr>
+
+
+      <td>Compound interest by year: ${depositByYear}</td>
+     </tr>
 
 <c:forEach items="${deposits}" var="deposit">
              <tr>
@@ -8,4 +10,10 @@
                 <td>Interest: ${deposit.interest}</td>
                 <td>Years of deposit: ${deposit.depositYear}</td>
              </tr>
-        </c:forEach>
+</c:forEach>
+
+<c:forEach items="${depositByMonths}" var="depositByMonth">
+              <tr>
+                 <td>Compound interest by month: ${depositByMonth}</td>
+              </tr>
+</c:forEach>
