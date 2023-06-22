@@ -1,27 +1,36 @@
 package calculate;
 
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.apache.activemq.ActiveMQConnectionFactory;
 
-@CrossOrigin("http://127.0.0.1:8161/api/jolokia")
+import javax.jms.*;
+
+
 public class Main {
     public static void main(String[] args) {
-        //ActiveMQ végpont
-        String endpoint = "http://localhost:8161/api/jolokia/read/org.apache.activemq:type=Broker,brokerName=localhost,destinationType=Queue,destinationName=LoanQueue";
+        MessageConsumer consumer = null;
+        try {
+            ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://127.0.0.1:61616");
+            Connection connection = connectionFactory.createConnection();
+            connection.start();
 
-        //ActiveMQ lekérdezése
-        RestAssured.authentication = RestAssured.basic("admin", "admin");
-        Response response = RestAssured.get(endpoint);
+            Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+            Queue queue = session.createQueue("LoanQueue");
+            consumer = session.createConsumer(queue);
 
+            Message response;
+            while ((response = consumer.receive()) != null) {
+                if (response instanceof TextMessage) {
+                    TextMessage textMessage = (TextMessage) response;
+                    String messageText = textMessage.getText();
+                    System.out.println("Response: " + messageText);
+                }
+                consumer.close();
+                session.close();
+                connection.close();
+            }
 
-        //Válasz
-        if (response.statusCode() == 200){
-            String responseBody = response.getBody().asString();
-            System.out.println(responseBody);
-        }else {
-            System.out.println("Failed to query ActiveMQ Queue. Status code: " + response.statusCode());
+        } catch (JMSException e) {
+            throw new RuntimeException(e);
         }
     }
 }
