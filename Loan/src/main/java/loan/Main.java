@@ -18,7 +18,7 @@ public class Main {
             connection.start();
 
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            Queue queue = session.createQueue("MyQueue");
+            Queue queue = session.createQueue("LoanQueue");
             String urlString = "http://localhost:8080/loan-calc/deposit";
             String endpointContent = readEndpointContent(urlString);
 
