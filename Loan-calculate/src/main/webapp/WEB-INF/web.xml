@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         version="3.1"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
+    <filter>
+        <filter-name>DevCorsConfig</filter-name>
+        <filter-class>calculate.config.DevCorsConfig</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>DevCorsConfig</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>DepositServlet</servlet-name>
+        <servlet-class>calculate.deposit.DepositServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DepositServlet</servlet-name>
+        <url-pattern>/deposit/*</url-pattern>
+    </servlet-mapping>
+
+</web-app>
