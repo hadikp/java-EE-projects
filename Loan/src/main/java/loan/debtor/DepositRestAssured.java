@@ -22,14 +22,14 @@ public class DepositRestAssured {
 
     public void dataFromApi(String endpoint) throws ParseException {
         Response response = doGetRequest(endpoint);
-        String fund = response.jsonPath().getString("fund[2]");
-        String interest = response.jsonPath().getString("interest[2]");
-        String year = response.jsonPath().getString("depositYear[2]");
-        String payment = response.jsonPath().getString("payment[2]");
-        String annuity = response.jsonPath().getString("annuity[2]");
-        String annuitiesYear = response.jsonPath().getString("annuitiesYear[2]");
-        String depositInterestByYear = response.jsonPath().getString("depositInterestByYear[2]");
-        String depositInterestByMonth = response.jsonPath().getString("depositInterestByMonth[2]");
+        String fund = response.jsonPath().getString("fund[1]");
+        String interest = response.jsonPath().getString("interest[1]");
+        String year = response.jsonPath().getString("depositYear[1]");
+        String payment = response.jsonPath().getString("payment[1]");
+        String annuity = response.jsonPath().getString("annuity[1]");
+        String annuitiesYear = response.jsonPath().getString("annuitiesYear[1]");
+        String depositInterestByYear = response.jsonPath().getString("depositInterestByYear[1]");
+        String depositInterestByMonth = response.jsonPath().getString("depositInterestByMonth[1]");
         System.out.println("Tőke: " + Integer.valueOf(fund));
         System.out.println("Kamat: " + Double.valueOf(interest));
         System.out.println("Pénz lekötésének évei: " + Integer.valueOf(year));
