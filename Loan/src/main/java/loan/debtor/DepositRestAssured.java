@@ -7,10 +7,14 @@ import io.restassured.response.Response;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
+import java.util.Arrays;
+import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
 public class DepositRestAssured {
+
+    private Deposit deposit;
 
     public static Response doGetRequest(String endpoint){
         RestAssured.defaultParser = Parser.JSON;
@@ -22,16 +26,18 @@ public class DepositRestAssured {
 
     public void dataFromApi(String endpoint) throws ParseException {
         Response response = doGetRequest(endpoint);
-        String fund = response.jsonPath().getString("fund[1]");
-        String interest = response.jsonPath().getString("interest[1]");
-        String year = response.jsonPath().getString("depositYear[1]");
-        String payment = response.jsonPath().getString("payment[1]");
-        String annuity = response.jsonPath().getString("annuity[1]");
-        String annuitiesYear = response.jsonPath().getString("annuitiesYear[1]");
-        String depositInterestByYear = response.jsonPath().getString("depositInterestByYear[1]");
-        String depositInterestByMonth = response.jsonPath().getString("depositInterestByMonth[1]");
-        System.out.println("Tőke: " + Integer.valueOf(fund));
-        System.out.println("Kamat: " + Double.valueOf(interest));
+
+        Object[] funds = response.jsonPath().getList("fund").toArray();
+        //String interest = response.jsonPath().getString("interest[2]");
+        Object[] interests = response.jsonPath().getList("interest").toArray();
+        String year = response.jsonPath().getString("depositYear[2]");
+        String payment = response.jsonPath().getString("payment[2]");
+        String annuity = response.jsonPath().getString("annuity[2]");
+        String annuitiesYear = response.jsonPath().getString("annuitiesYear[2]");
+        String depositInterestByYear = response.jsonPath().getString("depositInterestByYear[2]");
+        String depositInterestByMonth = response.jsonPath().getString("depositInterestByMonth[2]");
+        System.out.println("Tőke: " +  funds[funds.length-1]);
+        System.out.println("Kamat: " + interests[funds.length-1]);
         System.out.println("Pénz lekötésének évei: " + Integer.valueOf(year));
         System.out.println("Befizetés: " + Integer.valueOf(payment));
         System.out.println("Életjáradék: " + DecimalFormat.getNumberInstance().parse(annuity).doubleValue());

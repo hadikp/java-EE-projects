@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "debtors")
-public class Debtor {
+public class Debtor { //adós
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
