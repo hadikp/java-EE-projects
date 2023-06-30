@@ -28,21 +28,23 @@ public class DepositRestAssured {
         Response response = doGetRequest(endpoint);
 
         Object[] funds = response.jsonPath().getList("fund").toArray();
-        //String interest = response.jsonPath().getString("interest[2]");
+        //String interest = response.jsonPath().getString("interest[1]");
+        int lastListElement = funds.length - 1;
         Object[] interests = response.jsonPath().getList("interest").toArray();
-        String year = response.jsonPath().getString("depositYear[2]");
-        String payment = response.jsonPath().getString("payment[2]");
-        String annuity = response.jsonPath().getString("annuity[2]");
-        String annuitiesYear = response.jsonPath().getString("annuitiesYear[2]");
-        String depositInterestByYear = response.jsonPath().getString("depositInterestByYear[2]");
-        String depositInterestByMonth = response.jsonPath().getString("depositInterestByMonth[2]");
-        System.out.println("Tőke: " +  funds[funds.length-1]);
-        System.out.println("Kamat: " + interests[funds.length-1]);
-        System.out.println("Pénz lekötésének évei: " + Integer.valueOf(year));
-        System.out.println("Befizetés: " + Integer.valueOf(payment));
-        System.out.println("Életjáradék: " + DecimalFormat.getNumberInstance().parse(annuity).doubleValue());
-        System.out.println("Pénzgyűjtés évei: " + annuitiesYear);
-        System.out.println("Kamatos kamat évente: " + depositInterestByYear);
-        System.out.println("Kamatos kamat havonta: " + depositInterestByMonth);
+        Object[] years = response.jsonPath().getList("depositYear").toArray();
+        Object[] payments = response.jsonPath().getList("payment").toArray();
+        Object[] annuities = response.jsonPath().getList("annuity").toArray();
+        Object[] annuitiesYears = response.jsonPath().getList("annuitiesYear").toArray();
+        Object[] depositInterestByYears = response.jsonPath().getList("depositInterestByYear").toArray();
+        Object[] depositInterestByMonths = response.jsonPath().getList("depositInterestByMonth").toArray();
+
+        System.out.println("Tőke: " +  funds[lastListElement]); //int
+        System.out.println("Kamat: " + interests[lastListElement]); //Float
+        System.out.println("Pénz lekötésének évei: " + years[lastListElement]); //int
+        System.out.println("Befizetés: " + payments[lastListElement]); //int
+        System.out.println("Életjáradék: " + annuities[lastListElement]); //String, DecimalFormat.getNumberInstance().parse(annuity).doubleValue()
+        System.out.println("Pénzgyűjtés évei: " + annuitiesYears[lastListElement]); //int
+        System.out.println("Kamatos kamat évente: " + depositInterestByYears[lastListElement]); //String
+        System.out.println("Kamatos kamat havonta: " + depositInterestByMonths[lastListElement]); //String
     }
 }
