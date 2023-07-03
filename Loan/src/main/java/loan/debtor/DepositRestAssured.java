@@ -5,10 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.parsing.Parser;
 import io.restassured.response.Response;
 
-import java.text.DecimalFormat;
 import java.text.ParseException;
-import java.util.Arrays;
-import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
@@ -38,6 +35,10 @@ public class DepositRestAssured {
         Object[] depositInterestByYears = response.jsonPath().getList("depositInterestByYear").toArray();
         Object[] depositInterestByMonths = response.jsonPath().getList("depositInterestByMonth").toArray();
 
+        Deposit depositFromEndpoint = new Deposit((Integer) funds[lastListElement], (Float) interests[lastListElement], (Integer) years[lastListElement], (Integer) payments[lastListElement],
+               (String) annuities[lastListElement], (Integer) annuitiesYears[lastListElement], (String) depositInterestByYears[lastListElement], (String) depositInterestByMonths[lastListElement]);
+        deposit.setFund((Integer) funds[lastListElement]);
+
         System.out.println("Tőke: " +  funds[lastListElement]); //int
         System.out.println("Kamat: " + interests[lastListElement]); //Float
         System.out.println("Pénz lekötésének évei: " + years[lastListElement]); //int
@@ -46,5 +47,9 @@ public class DepositRestAssured {
         System.out.println("Pénzgyűjtés évei: " + annuitiesYears[lastListElement]); //int
         System.out.println("Kamatos kamat évente: " + depositInterestByYears[lastListElement]); //String
         System.out.println("Kamatos kamat havonta: " + depositInterestByMonths[lastListElement]); //String
+    }
+
+    public Deposit getDepositFromEndpoint(){
+        return this.deposit;
     }
 }

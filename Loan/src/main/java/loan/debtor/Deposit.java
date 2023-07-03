@@ -20,15 +20,15 @@ public class Deposit {
     private Long id;
 
     private int fund; //tőke
-    private double interest; //kamat
+    private Float interest; //kamat
     private int year; //pénz lekötésének évei
     private int payment; //befizetés
-    private double annuity; //életjáradék
-    private String annuitiesYear; //pénzgyújtés évei
+    private String annuity; //életjáradék
+    private int annuitiesYear; //pénzgyújtés évei
     private  String depositInterestByYear; //kamatos kamat évente
     private  String depositInterestByMonth;
 
-    public Deposit(int fund, double interest, int year, int payment, double annuity, String annuitiesYear, String depositInterestByYear, String depositInterestByMonth) {
+    public Deposit(int fund, Float interest, int year, int payment, String annuity, int annuitiesYear, String depositInterestByYear, String depositInterestByMonth) {
         this.fund = fund;
         this.interest = interest;
         this.year = year;
