@@ -5,4 +5,4 @@
                         <td>Years of deposit: ${deposit.year}</td>
                         <td>Payment: ${deposit.payment}</td>
                      </tr>
-        </c:forEach>
+</c:forEach>

@@ -36,14 +36,14 @@ public class DepositRestAssured {
         Deposit depositFromEndpoint = new Deposit((Integer) funds[lastListElement], (Float) interests[lastListElement], (Integer) years[lastListElement], (Integer) payments[lastListElement],
                (String) annuities[lastListElement], (Integer) annuitiesYears[lastListElement], (String) depositInterestByYears[lastListElement], (String) depositInterestByMonths[lastListElement]);
 
-        System.out.println("Tőke: " +  funds[lastListElement]); //int
+        /*System.out.println("Tőke: " +  funds[lastListElement]); //int
         System.out.println("Kamat: " + interests[lastListElement]); //Float
         System.out.println("Pénz lekötésének évei: " + years[lastListElement]); //int
         System.out.println("Befizetés: " + payments[lastListElement]); //int
         System.out.println("Életjáradék: " + annuities[lastListElement]); //String, DecimalFormat.getNumberInstance().parse(annuity).doubleValue()
         System.out.println("Pénzgyűjtés évei: " + annuitiesYears[lastListElement]); //int
         System.out.println("Kamatos kamat évente: " + depositInterestByYears[lastListElement]); //String
-        System.out.println("Kamatos kamat havonta: " + depositInterestByMonths[lastListElement]); //String
+        System.out.println("Kamatos kamat havonta: " + depositInterestByMonths[lastListElement]); //String*/
 
         return depositFromEndpoint;
     }

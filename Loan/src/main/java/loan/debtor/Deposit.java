@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -18,14 +15,20 @@ public class Deposit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private int fund; //tőke
     private Float interest; //kamat
+    @Column(name = "deposit_year")
     private int year; //pénz lekötésének évei
     private int payment; //befizetés
     private String annuity; //életjáradék
+
+    @Column(name = "annuities_year")
     private int annuitiesYear; //pénzgyújtés évei
+
+    @Column(name = "deposit_interest_year")
     private  String depositInterestByYear; //kamatos kamat évente
+
+    @Column(name = "deposit_interest_month")
     private  String depositInterestByMonth;
 
     public Deposit(int fund, Float interest, int year, int payment, String annuity, int annuitiesYear, String depositInterestByYear, String depositInterestByMonth) {
