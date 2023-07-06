@@ -49,4 +49,10 @@ public class DebtorService {
     public void saveDeposit(Deposit depositsFromRestAssured) {
         em.persist(depositsFromRestAssured);
     }
+
+    @Transactional
+    public void deleteDeposit(Long id){
+        Deposit deposit = em.find(Deposit.class, id);
+        em.remove(deposit);
+    }
 }
