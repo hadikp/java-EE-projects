@@ -47,12 +47,21 @@ public class DebtorService {
 
     @Transactional
     public void saveDeposit(Deposit depositsFromRestAssured) {
-        em.persist(depositsFromRestAssured);
+        List<Deposit> depositList = listDeposit();
+        for (Deposit d: depositList){
+           if (d.getFund() != depositsFromRestAssured.getFund()){
+               em.persist(depositsFromRestAssured);
+           }
+        }
     }
 
     @Transactional
     public void deleteDeposit(Long id){
         Deposit deposit = em.find(Deposit.class, id);
         em.remove(deposit);
+    }
+
+    public List<Deposit> listDeposit() {
+        return em.createQuery("Select dp from Deposit dp", Deposit.class).getResultList();
     }
 }
