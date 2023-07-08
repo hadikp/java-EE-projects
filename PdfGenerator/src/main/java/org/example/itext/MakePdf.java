@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
 
-@Path("pdf")
+@Path("/pdf")
 @Stateless
 public class MakePdf {
 
@@ -20,6 +20,6 @@ public class MakePdf {
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public Response createPdf() throws IOException {
         return Response.ok(pdfGenerator.createPdf(), MediaType.APPLICATION_OCTET_STREAM)
-                .header("Content-Disposition", "attachment; filename=\"iText.pdf\"").build();
+                .header("Content-Disposition", "attachment; filename=\"iTextP.pdf\"").build();
     }
 }
